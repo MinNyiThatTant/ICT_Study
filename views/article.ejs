@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+          <br>
+          <h1><%= article.title  %></h1>
+          <h6>written by <%= author %></h6>
+          <br>
+          <p><%= article.otinfo %></p>
+          <hr>
+          <% if(user){ %>
+            <% if(user.id == article.author){ %>
+              <a class="btn btn-outline-secondary" href="/articles/edit/<%= article._id %>" role="button">Edit</a>
+              <a class="btn btn-outline-danger delete-article" href="#" role="button" data-id=<%=article._id%>>Delete</a>
+            <% } %>
+          <% } %>
+
+        </div>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+  <% include partials/scripts.ejs %>
+</html>

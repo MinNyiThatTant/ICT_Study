@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+          <br><br><br>
+          <div class="col-md-3 m-auto">
+            <div class="card card-body">
+              <h1 class="text-center md-4">
+                Welcome
+              </h1>
+              <form action="/teachers/login" method="post">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Username</label>
+                  <input type="name" class="form-control" id="exampleFormControlInput1" name="username">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input type="password" class="form-control" id="exampleFormControlInput1" name="password">
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">Log in</button>
+              </form>
+              <p class="lead mt-4">
+                No Account? <a href="/teachers/register">Register</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+  <% include partials/scripts.ejs %>
+</html>

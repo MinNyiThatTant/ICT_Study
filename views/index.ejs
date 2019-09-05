@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+          
+          <br>
+            <h1>Fitnesscenter</h1>
+            <br>
+            <ul>
+              <% if (articles) { %>
+                <% articles.forEach(function(article) { %>
+                    <li class="list-group-item">
+                      <a href="/articles/<%=article._id%>"> <%= article.title %></a>
+                    </li>
+                <% }); %>
+              <% } else { %>
+                <h3><%= title %></h3>
+              <% } %>
+            </ul>
+      </div>
+      
+    // /div>
+    <% include partials/footer.ejs %>
+  <% include partials/scripts.ejs %>
+  </body>
+</html>

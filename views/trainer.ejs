@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+          <br>
+          <h1><%= trainer.trainername  %></h1>
+          <h6>written by <%= author %></h6>
+          <br>
+          <p><%= trainer.otinfo %></p>
+          <hr>
+          <% if(user){ %>
+            <% if(user.id == trainer.author){ %>
+              <a class="btn btn-outline-secondary" href="/trainers/edit/<%= trainer._id %>" role="button">Edit</a>
+              <a class="btn btn-outline-danger delete-trainer" href="#" role="button" data-id=<%=trainer._id%>>Delete</a>
+            <% } %>
+          <% } %>
+
+        </div>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+  <% include partials/scripts.ejs %>
+</html>
